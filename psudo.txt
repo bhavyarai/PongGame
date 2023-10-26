@@ -1,0 +1,47 @@
+1. create a screen
+
+2. Create a paddle - one move by computer and second by the up and down key
+
+3. Create another paddle
+
+4. Create  a ball, move, detect collision, bounce back
+
+5. Detect collision with paddle
+
+6. Detect when ball misses the paddle
+
+7. keep score
+
+
+class Paddle(Turtle):
+
+    def __init__(self):
+        super().__init__()
+        self.color("white")
+        self.shape("square")
+        self.shapesize(stretch_wid=2, stretch_len=0.5)
+        self.goto(x=350, y=0)
+
+    def move(self):
+        while True:
+            self.setheading(90)
+            if self.xcor() == 350:
+                if self.ycor() >= 350:
+                    self.setheading(270)
+                elif self.ycor() <= -350:
+                    self.setheading(90)
+                self.forward(10)
+
+
+def draw_line():
+    tim = Turtle()
+    tim.penup()
+    tim.pencolor("white")
+    tim.speed("fastest")
+    tim.goto(x=0, y=-400)
+    tim.setheading(90)
+    while tim.ycor() < 400:
+        tim.pendown()
+        tim.forward(10)
+        tim.penup()
+        tim.forward(5)
